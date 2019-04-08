@@ -144,8 +144,10 @@ namespace window
         SDL_GL_LoadLibrary(NULL); // GLAD will do the loading for us after creating context
         sdl_gl_context = SDL_GL_CreateContext(sdl_window);
         assert(sdl_gl_context != 0);
-        assert(gladLoadGLLoader(SDL_GL_GetProcAddress));
-        assert(gladLoadGL());
+		int res1 = gladLoadGLLoader(SDL_GL_GetProcAddress);
+        assert(res1);
+		int res2 = gladLoadGL();
+        assert(res2);
 
         #ifdef VDB_DEBUG
         glad_set_post_callback(PostGLCallback);
