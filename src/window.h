@@ -86,7 +86,7 @@ namespace window
         #endif
     }
 
-    static void Open(int x, int y, int width, int height)
+    static void Open(int x, int y, int width, int height, int swapInterval=1)
     {
         if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
         {
@@ -157,7 +157,7 @@ namespace window
         // vertical retrace. If the system supports it, you may
         // specify -1 to allow late swaps to happen immediately
         // instead of waiting for the next retrace.
-        SDL_GL_SetSwapInterval(1);
+        SDL_GL_SetSwapInterval(swapInterval);
 
         // Instead of using vsync, you can specify a desired framerate
         // that the application will attempt to keep. If a frame rendered

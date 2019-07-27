@@ -28,7 +28,7 @@ struct vdbTextureOptions
 void vdbDetachGLContext();
 void vdbStepOnce();
 void vdbStepOver();
-bool vdbBeginFrame(const char *label);
+bool vdbBeginFrame(const char *label, bool synced=true);
 void vdbEndFrame();
 bool vdbIsFirstFrame();
 bool vdbIsDifferentLabel();

@@ -111,7 +111,7 @@ void vdbStepOver()
     vdb::want_step_over = true;
 }
 
-bool vdbBeginFrame(const char *label)
+bool vdbBeginFrame(const char *label, bool synced)
 {
     static const char *skip_label = NULL;
     static const char *prev_label = NULL;
@@ -130,7 +130,8 @@ bool vdbBeginFrame(const char *label)
 
         settings.LoadOrDefault(VDB_SETTINGS_FILENAME);
         window_settings_t ws = settings.window;
-        window::Open(ws.x, ws.y, ws.width, ws.height);
+        int interval = synced ? 1 : 0;
+        window::Open(ws.x, ws.y, ws.width, ws.height, interval);
         CheckGLError();
 
         ImGui::CreateContext();
