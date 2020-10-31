@@ -9,3 +9,5 @@ target_include_directories(vdb PRIVATE
                     ${CMAKE_CURRENT_SOURCE_DIR}/../include/SDL 
 					${CMAKE_CURRENT_SOURCE_DIR}/../include/vdb
 					)
+
+target_link_libraries(vdb ${CMAKE_CURRENT_SOURCE_DIR}/../lib/sdl/x64/SDL2.lib)
